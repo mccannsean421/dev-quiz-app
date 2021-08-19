@@ -2,9 +2,9 @@
   <div class="container">
     <form @submit.prevent="login">
       <label for="email">Email address:</label>
-      <input v-model="email" placeholder="email" type="text" name="email" />
+      <input aria-label="Enter your email address" v-model="email" placeholder="email" type="text" name="email" />
 
-      <label for="password">Password:</label>
+      <label aria-label="Enter your email address" for="password">Password:</label>
       <input v-model="password" placeholder="password" type="password" name="password" />
       <input type="submit" />
     </form>

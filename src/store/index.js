@@ -18,11 +18,18 @@ const store = createStore({
   },
 
   actions: {
-
+    logout() {
+      const { localStorage } = window;
+      localStorage.removeItem('user');
+    }
   },
 
   getters: {
-
+    authenticated(state) {
+      const { localStorage } = window;
+      const user = localStorage.user ? JSON.parse(localStorage.user) : null;
+      return !!user?.token;
+    }
   }
 });
 

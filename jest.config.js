@@ -9,7 +9,6 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
     '^.+\\.vue$': 'vue-jest',
-    "\\.[jt]sx?$": "babel-jest"
+   '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
   },
-  transformIgnorePatterns: ["/node_modules/"],
 }

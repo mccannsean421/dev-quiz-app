@@ -46,9 +46,6 @@ export default {
 
       const user = await response.json();
 
-      var decoded = jwt_decode(user.token);
-      console.log(decoded);
-
       const { localStorage } = window;
       localStorage.setItem('user', JSON.stringify(user));
 

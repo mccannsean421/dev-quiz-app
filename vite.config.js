@@ -1,3 +1,5 @@
+
+import path from 'path';
 module.exports = {
   server: {
     proxy: {
@@ -8,5 +10,5 @@ module.exports = {
         secure: false,
       }
     }
-  }
+  },
 }

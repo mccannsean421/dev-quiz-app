@@ -2,7 +2,6 @@
 <div class="w-full max-w-xs ml-auto mr-auto">
   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="login">
     <div class="mb-3">
-      {{ email }}
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email address:</label>
       <input
         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -23,39 +22,11 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex';
-import { ref, computed } from 'vue';
-import { useStore } from 'vuex';
+import UserLogin from '../../../compasables/UserLogin';
 
 export default {
   setup() {
-    const store = useStore();
-    let email = ref('testy.mctestface@test.com');
-    let password = ref('password');
-    const setUser = computed(function () {
-      return store.mutations.setUser;
-    });
-
-    const login = async (e) => {
-      e.preventDefault();
-      const response = await fetch("http://localhost:3030/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email.value,
-          password: password.value,
-        }),
-      });
-
-      const user = await response.json();
-
-      const { localStorage } = window;
-      localStorage.setItem('user', JSON.stringify(user));
-
-      setUser(user);
-    }
-
+    const { email, password, login } = UserLogin();
     return {
       email,
       password,
